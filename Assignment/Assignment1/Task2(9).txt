@@ -1,0 +1,5 @@
+delete from dbo.Orders
+where OrderID in(select CustomerID from dbo.Customers where CustomerID=10)
+
+delete from dbo.OrderDetails
+where OrderID in(select CustomerID from dbo.Customers where CustomerID=10)

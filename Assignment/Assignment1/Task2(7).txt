@@ -1,0 +1,4 @@
+update dbo.Customers
+set Email='jabajaba@example.com',
+	Address= '123 New Street, Jandy, Jordan'
+	where CustomerID=1;

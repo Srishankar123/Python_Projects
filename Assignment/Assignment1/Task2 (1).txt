@@ -1,0 +1,1 @@
+select FirstName, LastName,Email from Customers;

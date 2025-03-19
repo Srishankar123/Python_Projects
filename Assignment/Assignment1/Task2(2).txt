@@ -1,0 +1,8 @@
+
+SELECT OrderID, OrderDate, (SELECT FirstName + ' ' + LastName 
+     FROM dbo.Customers 
+     WHERE Customers.CustomerID = Orders.CustomerID) AS CustomerName
+FROM dbo.Orders;
+
+
+		

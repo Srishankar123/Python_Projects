@@ -1,0 +1,2 @@
+UPDATE dbo.Products  
+SET Price = Price * 1.10 ;
