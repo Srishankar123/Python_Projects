@@ -1,0 +1,69 @@
+INSERT INTO dbo.Customers (CustomerID, FirstName, LastName, Email, Phone, Address)
+VALUES 
+(1, 'John', 'Doe', 'john.doe@example.com', '9876543210', '123 Main St, New York, NY'),
+(2, 'Jane', 'Smith', 'jane.smith@example.com', '9123456780', '456 Elm St, Los Angeles, CA'),
+(3, 'Robert', 'Brown', 'robert.brown@example.com', '9234567890', '789 Oak St, Chicago, IL'),
+(4, 'Emily', 'Davis', 'emily.davis@example.com', '9345678901', '321 Pine St, Houston, TX'),
+(5, 'Michael', 'Wilson', 'michael.wilson@example.com', '9456789012', '654 Cedar St, Miami, FL'),
+(6, 'Sarah', 'Johnson', 'sarah.johnson@example.com', '9567890123', '987 Birch St, Seattle, WA'),
+(7, 'David', 'Martinez', 'david.martinez@example.com', '9678901234', '159 Spruce St, Denver, CO'),
+(8, 'Laura', 'Garcia', 'laura.garcia@example.com', '9789012345', '753 Maple St, Phoenix, AZ'),
+(9, 'James', 'Anderson', 'james.anderson@example.com', '9890123456', '852 Redwood St, Dallas, TX'),
+(10, 'Olivia', 'Lee', 'olivia.lee@example.com', '9901234567', '369 Walnut St, Boston, MA');
+
+
+INSERT INTO dbo.Products (ProductID, ProductName, Description, Price)
+VALUES 
+(1, 'Laptop', '15-inch display, 8GB RAM', 899.99),
+(2, 'Smartphone', '6.5-inch OLED, 128GB', 699.50),
+(3, 'Wireless Headphones', 'Noise-canceling, Bluetooth', 199.99),
+(4, 'Smartwatch', 'Fitness tracker, heart rate monitor', 149.75),
+(5, 'Gaming Console', '4K gaming, 1TB SSD', 499.99),
+(6, 'Tablet', '10-inch, 64GB storage', 299.99),
+(7, 'Mechanical Keyboard', 'RGB backlight, blue switches', 129.99),
+(8, 'Wireless Mouse', 'Ergonomic design, fast response', 49.99),
+(9, 'Monitor', '27-inch, 144Hz refresh rate', 329.99),
+(10, 'External Hard Drive', '2TB, USB 3.0', 89.50);
+
+
+INSERT INTO dbo.Orders (OrderID, CustomerID, OrderDate, TotalAmount)
+VALUES 
+(1, 1, '2025-03-01', 899.99),
+(2, 2, '2025-03-02', 1299.50),
+(3, 3, '2025-03-03', 199.99),
+(4, 4, '2025-03-04', 149.75),
+(5, 5, '2025-03-05', 499.99),
+(6, 6, '2025-03-06', 299.99),
+(7, 7, '2025-03-07', 129.99),
+(8, 8, '2025-03-08', 49.99),
+(9, 9, '2025-03-09', 329.99),
+(10, 10, '2025-03-10', 89.50);
+
+
+INSERT INTO dbo.OrderDetails (OrderDetailID, OrderID, ProductID, Quantity)
+VALUES 
+(1, 1, 1, 1),   -- Order 1: 1 Laptop
+(2, 2, 2, 2),   -- Order 2: 2 Smartphones
+(3, 3, 3, 1),   -- Order 3: 1 Wireless Headphones
+(4, 4, 4, 3),   -- Order 4: 3 Smartwatches
+(5, 5, 5, 1),   -- Order 5: 1 Gaming Console
+(6, 6, 6, 2),   -- Order 6: 2 Tablets
+(7, 7, 7, 1),   -- Order 7: 1 Mechanical Keyboard
+(8, 8, 8, 2),   -- Order 8: 2 Wireless Mice
+(9, 9, 9, 1),   -- Order 9: 1 Monitor
+(10, 10, 10, 4); -- Order 10: 4 External Hard Drives
+
+
+
+INSERT INTO dbo.Inventory (InventoryID, ProductID, QuantityInStock, LastStockUpdate)
+VALUES 
+(1, 1, 50, '2025-03-01 10:30:00'),  -- Laptop
+(2, 2, 30, '2025-03-02 12:15:00'),  -- Smartphone
+(3, 3, 75, '2025-03-03 14:45:00'),  -- Wireless Headphones
+(4, 4, 20, '2025-03-04 09:00:00'),  -- Smartwatch
+(5, 5, 90, '2025-03-05 16:20:00'),  -- Gaming Console
+(6, 6, 10, '2025-03-06 18:00:00'),  -- Tablet
+(7, 7, 40, '2025-03-07 11:10:00'),  -- Mechanical Keyboard
+(8, 8, 25, '2025-03-08 08:45:00'),  -- Wireless Mouse
+(9, 9, 60, '2025-03-09 17:30:00'),  -- Monitor
+(10, 10, 15, '2025-03-10 13:55:00'); -- External Hard Drive
