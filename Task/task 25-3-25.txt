@@ -1,0 +1,138 @@
+1. SELECT o.ord_no, o.purch_amt, o.ord_date, o.customer_id, o.salesman_id 
+FROM Orders o 
+WHERE o.salesman_id = (SELECT s.salesman_id FROM Salesman s WHERE s.name = 'Paul Adam');
+
+
+2.  SELECT o.ord_no, o.purch_amt, o.ord_date, o.customer_id, o.salesman_id 
+FROM Orders o 
+WHERE o.salesman_id = (SELECT s.salesman_id FROM Salesman s WHERE s.city = 'London');
+
+
+3.  SELECT o.ord_no, o.purch_amt, o.ord_date, o.customer_id, o.salesman_id 
+FROM Orders o 
+WHERE o.customer_id = (SELECT oo.customer_id FROM Orders oo  WHERE oo.customer_id = 3007);
+
+
+4.  SELECT o.ord_no, o.purch_amt, o.ord_date, o.customer_id, o.salesman_id 
+FROM Orders o 
+WHERE o.purch_amt > (SELECT Avg(oo.purch_amt) FROM Orders oo  WHERE ord_date= '2012-10-10');
+
+
+5.  
+SELECT o.ord_no, o.purch_amt, o.ord_date, o.customer_id, o.salesman_id 
+FROM Orders o 
+WHERE o.salesman_id = (SELECT s.salesman_id FROM salesman s  WHERE s.city='New York');
+
+
+6. SELECT o.commission
+FROM salesman o 
+WHERE o.salesman_id = (SELECT c.salesman_id FROM customer c  WHERE c.city='Paris');
+
+
+7.  SELECT c.cust_name
+FROM customer c 
+WHERE c.customer_id <2001 and c.salesman_id=(SELECT s.salesman_id FROM  salesman s  WHERE s.name='Mc Lyon' );
+
+
+8. SELECT Count(c.grade) as More_count_than_New_York
+FROM customer c 
+WHERE c.grade>(SELECT avg(s.grade) FROM  customer s  where s.city='New York')
+group by c.grade;
+
+
+9.  SELECT  o.ord_no, o.purch_amt, o.ord_date, o.salesman_id
+FROM orders o
+WHERE o.salesman_id  in (SELECT s.salesman_id FROM  salesman s 
+where s.commission=(select max(ss.commission) from salesman ss));
+
+
+10. SELECT ord_no, purch_amt, ord_date, customer_id, salesman_id, 
+       (SELECT cust_name FROM Customer c WHERE c.customer_id = o.customer_id) AS cust_name
+FROM Orders o
+WHERE ord_date = '2012-08-17';
+
+
+11.  SELECT s.salesman_id , s.name
+FROM salesman s where s.salesman_id in(SELECT c.salesman_id from customer c 
+group by c.salesman_id
+having count(c.customer_id)>1);
+
+
+12. select o.ord_no, o.purch_amt, o.ord_date, o.customer_id , o.salesman_id
+from Orders o where o.purch_amt >(select avg(oo.purch_amt) from orders oo );
+
+
+13. select o.ord_no, o.purch_amt, o.ord_date, o.customer_id , o.salesman_id
+from Orders o where o.purch_amt >=(select avg(oo.purch_amt) from orders oo );
+
+14. select o.ord_date, sum(o.purch_amt) as Total_Amount
+from orders o 
+group by o.ord_date
+having sum(o.purch_amt)>=(select max(oo.purch_amt) from orders oo where oo.ord_date=o.ord_date )+1000;
+
+
+15. SELECT *
+FROM customer c
+WHERE c.city = 'London' 
+AND (SELECT COUNT(cc.customer_id) FROM customer cc WHERE cc.city = 'London') > 1;
+
+
+16. SELECT s.salesman_id, s.name, s.city,s.commission
+FROM salesman s
+WHERE s.salesman_id in 
+ (SELECT cc.salesman_id FROM customer cc 
+ group by salesman_id
+ having count(cc.customer_id) > 1);
+
+
+
+17. SELECT s.salesman_id, s.name, s.city,s.commission
+FROM salesman s
+WHERE s.salesman_id in 
+ (SELECT cc.salesman_id FROM customer cc 
+ group by salesman_id
+ having count(cc.customer_id) = 1);
+
+
+18.  SELECT s.salesman_id, s.name, s.city, s.commission
+FROM salesman s
+WHERE s.salesman_id IN (
+    SELECT c.salesman_id
+    FROM customer c
+    WHERE c.customer_id IN (
+        SELECT o.customer_id
+        FROM orders o
+        GROUP BY o.customer_id
+        HAVING COUNT(o.ord_no) > 1
+    )
+);
+
+
+19. SELECT s.salesman_id, s.name, s.city,s.commission
+FROM salesman s
+WHERE s.city in 
+ (SELECT c.city from customer c where c.city is not null);
+
+
+20. select s.salesman_id, s.name, s.city,s.commission
+from salesman s
+where s.city in 
+ (select c.city from customer c);
+
+
+21. SELECT DISTINCT s.salesman_id, s.name, s.city, s.commission
+FROM salesman s
+JOIN customer c ON s.salesman_id = c.salesman_id
+WHERE s.name < c.cust_name;
+
+
+22. SELECT c.customer_id, c.cust_name, c.city, c.grade, c.salesman_id
+FROM customer c
+WHERE c.grade > ALL (
+    SELECT cc.grade 
+    FROM customer cc 
+    WHERE cc.city > 'New York'
+);
+
+
+23. 	
