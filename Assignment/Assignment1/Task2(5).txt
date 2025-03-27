@@ -1,5 +1,0 @@
-DELETE FROM dbo.OrderDetails  
-WHERE OrderID = 10;  
-
-DELETE FROM dbo.Orders  
-WHERE OrderID = 10;

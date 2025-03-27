@@ -1,4 +1,0 @@
-insert into Customers(CustomerId, FirstName, LastName, Email, Phone, Address)
-values
-(11, 'Henry', 'Doe', 'henrydoe@example.com', 6734561234, '536 Salo St, Los Angeles, CA');UPDATE dbo.Products  
-SET Price = Price * 1.10 ;
