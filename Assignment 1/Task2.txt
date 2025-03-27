@@ -1,0 +1,65 @@
+1. select FirstName, LastName,Email from Customers;
+
+2. 
+SELECT OrderID, OrderDate, (SELECT FirstName + ' ' + LastName 
+     FROM dbo.Customers 
+     WHERE Customers.CustomerID = Orders.CustomerID) AS CustomerName
+FROM dbo.Orders;
+
+
+		
+3. insert into Customers(CustomerId, FirstName, LastName, Email, Phone, Address)
+values
+(11, 'Henry', 'Doe', 'henrydoe@example.com', 6734561234, '536 Salo St, Los Angeles, CA');UPDATE dbo.Products  
+SET Price = Price * 1.10 ;
+
+
+4. UPDATE dbo.Products  
+SET Price = Price * 1.10 ;
+
+
+5. DELETE FROM dbo.OrderDetails  
+WHERE OrderID = 10;  
+
+DELETE FROM dbo.Orders  
+WHERE OrderID = 10;
+
+6. insert into Orders(OrderID, CustomerID, OrderDate, TotalAmount)
+values
+(10, 10, '2025-03-10', 90.87);
+
+7. update dbo.Customers
+set Email='jabajaba@example.com',
+	Address= '123 New Street, Jandy, Jordan'
+	where CustomerID=1;
+
+8. *UPDATE Orders 
+SET TotalAmount = (SELECT SUM(Products.Price * OrderDetails.Quantity)
+                   FROM OrderDetails
+                   JOIN Products ON OrderDetails.ProductID = Products.ProductID
+                   WHERE OrderDetails.OrderID = Orders.OrderID);
+
+
+9. delete from dbo.Orders
+where OrderID in(select CustomerID from dbo.Customers where CustomerID=10)
+
+delete from dbo.OrderDetails
+where OrderID in(select CustomerID from dbo.Customers where CustomerID=10);
+
+
+10. INSERT INTO Products (ProductName, CategoryID, Price, StockQuantity, Brand)  
+VALUES ('Smartphone X100', 2, 799.99, 50, 'TechMe');
+
+11. UPDATE Orders  
+SET Status = 'Shipped'  
+WHERE OrderID = 10;
+
+12. UPDATE Customers  
+SET OrderCount = (  
+    SELECT COUNT(*)  
+    FROM Orders  
+    WHERE Orders.CustomerID = Customers.CustomerID  
+);
+
+
+

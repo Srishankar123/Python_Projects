@@ -1,0 +1,69 @@
+1.select CustomerID from Customers
+where CustomerID not in (select CustomerID from Orders );
+
+2. select(select Count(ProductID) from Products) as Total_Products;
+
+3. SELECT (SELECT SUM(o.Quantity * p.Price) 
+        FROM OrderDetails o 
+        JOIN Products p ON o.ProductID = p.ProductID) AS Total_Revenue;
+
+4. SELECT AVG(o.Quantity) AS Avg_Quantity_Ordered
+FROM OrderDetails o
+WHERE o.ProductID IN (
+    SELECT p.ProductID
+    FROM Products p
+    JOIN Categories c ON p.CategoryID = c.CategoryID
+    WHERE c.CategoryName = 'ProductCategory'  
+);
+
+5. select Sum(o.TotalAmount) as Total_Amount_Generated
+ from Orders o 
+where o.CustomerID=(select CustomerID from Customers where CustomerID=9);
+
+
+6. select top 1 Count(o.OrderID) as Total_Orders, o.CustomerID, c.FirstName,c.LastName
+ from Orders o 
+ join 
+ Customers c on o.CustomerID=c.CustomerID
+where o.CustomerID=(select CustomerID from Customers where CustomerID=9)
+group by o.CustomerID,c.FirstName,c.LastName
+order  by Total_Orders desc;
+
+
+7. SELECT ProductID, SUM(Quantity) AS Total_Quantity_Ordered
+FROM OrderDetails
+GROUP BY ProductID
+HAVING SUM(Quantity) >= ALL (
+    SELECT SUM(Quantity) 
+    FROM OrderDetails
+    GROUP BY ProductID
+);
+
+
+8.  select  top 1 o.CustomerID,Sum(o.TotalAmount) as Total_Amount_Generated,c.FirstName,c.LastName
+ from Orders o 
+ join
+ Customers c on o.CustomerID=c.CustomerID
+where o.CustomerID in(select CustomerID from Customers)
+group by o.CustomerID,c.FirstName,c.LastName
+order by Total_Amount_Generated desc;
+
+
+9.  select Avg(Total_Rev/ CC) as AVG_ORD_VALUE
+from (
+    SELECT count(o.OrderID) as CC, SUM(oo.Quantity * p.Price) AS Total_Rev
+ from Orders o
+join 
+OrderDetails oo on o.OrderID=oo.OrderID
+join
+Products p on oo.ProductID=p.ProductID
+) as T
+;
+
+
+10.  select  Count(o.OrderID) as Total_Orders, o.CustomerID, c.FirstName,c.LastName
+ from Orders o 
+ join 
+ Customers c on o.CustomerID=c.CustomerID
+where o.OrderID in(select OrderID from Orders)
+group by o.CustomerID,c.FirstName,c.LastName;
