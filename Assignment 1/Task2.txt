@@ -21,8 +21,7 @@ SET Price = Price * 1.10 ;
 5. DELETE FROM dbo.OrderDetails  
 WHERE OrderID = 10;  
 
-DELETE FROM dbo.Orders  
-WHERE OrderID = 10;
+
 
 6. insert into Orders(OrderID, CustomerID, OrderDate, TotalAmount)
 values
@@ -33,7 +32,7 @@ set Email='jabajaba@example.com',
 	Address= '123 New Street, Jandy, Jordan'
 	where CustomerID=1;
 
-8. *UPDATE Orders 
+8. UPDATE Orders 
 SET TotalAmount = (SELECT SUM(Products.Price * OrderDetails.Quantity)
                    FROM OrderDetails
                    JOIN Products ON OrderDetails.ProductID = Products.ProductID
