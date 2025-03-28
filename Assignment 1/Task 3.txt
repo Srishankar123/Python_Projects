@@ -27,8 +27,7 @@ ORDER BY Total_Quantity desc;
 
 
 5. SELECT p.ProductName,p.Description
-FROM Products p
-WHERE p.ProductName ;
+FROM Products p ;
 
 
 6.  SELECT c.FirstName,c.LastName, AVG(o.TotalAmount) Average_Order_Value
