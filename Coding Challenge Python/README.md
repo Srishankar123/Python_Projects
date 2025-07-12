@@ -85,7 +85,7 @@ Enter your choice:
 ## 🔗 Links
 
 - 🌐 [Portfolio Website](https://srishankar.netlify.app/)  
-- 💼 [LinkedIn Profile](https://www.linkedin.com/in/srishankar-lokanath/)  
+- 💼 [LinkedIn Profile](https://linkedin.com/in/srishankar-lokanath-99a5b4252)  
 - 📫 Email: [srishankarloknath@gmail.com](mailto:srishankarloknath@gmail.com)
 
 ---
