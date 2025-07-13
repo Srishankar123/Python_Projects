@@ -66,7 +66,8 @@ python main.py
 
 ## 📷 Screenshots
 
-*(You can optionally include CLI output screenshots here)*
+<img width="1919" height="1003" alt="image" src="https://github.com/user-attachments/assets/fcbc4713-740a-4e5f-bb3e-052b70e4d07e" />
+
 
 ## 🧠 Concepts Applied
 
@@ -79,7 +80,7 @@ python main.py
 
 **Srishankar Lokanath**  
 📫 [srishankarloknath@gmail.com](mailto:srishankarloknath@gmail.com)  
-🔗 [Portfolio](https://srishankar.netlify.app/) | [GitHub](https://github.com/Srishankar123) | [LinkedIn](https://linkedin.com/in/srishankar)
+🔗 [Portfolio](https://srishankar.netlify.app/) | [GitHub](https://github.com/Srishankar123) | [LinkedIn](https://linkedin.com/in/srishankar-lokanath-99a5b4252)
 
 ---
 
